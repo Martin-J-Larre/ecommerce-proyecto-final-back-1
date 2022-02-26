@@ -1,10 +1,11 @@
 # POST http://localhost:8081/register
 # Content-Type: application/json
 
-POST http://localhost:8081/login
+# POST http://localhost:8081/login
+# Content-Type: application/json
+
+PUT  http://localhost:8081/user/6219d72fafa763093b32d78f
 Content-Type: application/json
 {
-    "username":"Cosme",
-    "password":"holasoyunpassword"
-
+"email":"fulanito2000@gmail.com"
 }

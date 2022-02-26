@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 8082;
 app.use(express.json())
 
 // ------------Routes
-app.use('/', userRoute);
+app.use('/user', userRoute);
 app.use('/', authRoute);
 
 

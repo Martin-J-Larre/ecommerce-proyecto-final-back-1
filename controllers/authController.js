@@ -2,6 +2,7 @@ const User = require('../models/UserModel');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
+//Register
 const register = async (req, res) => {
     const newUser = new User({
         username: req.body.username,
@@ -18,15 +19,25 @@ const register = async (req, res) => {
     }
 }
 
+//Login
 const login = async (req, res) => {
     try {
         const user = await User.findOne({ username: req.body.username});
         if (user) {
             const compare = await bcrypt.compare(req.body.password, user.password)
             if (compare) {
-                return res.status(200).json(user);
+
+                const accessToken = jwt.sign({
+                    id:user._id,
+                    isAdmin: user.isAdmin,
+                }, process.env.JWT_SEC_KEY,
+                { expiresIn:"30d"}
+                );
+
+                const { password, ...others } = user._doc;
+                return res.status(200).json({ ...others, accessToken });
             }else{
-                return res.status(405).json("La contraseña no coincide !!!!");
+                return res.status(405).json("The password is wrong !!!!");
             }
         } else {
             res.send("No se encontro el usurario")
