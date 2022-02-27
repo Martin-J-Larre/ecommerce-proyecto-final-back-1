@@ -4,8 +4,8 @@
 # POST http://localhost:8081/login
 # Content-Type: application/json
 
-PUT  http://localhost:8081/user/6219d72fafa763093b32d78f
-Content-Type: application/json
-{
-"email":"fulanito2000@gmail.com"
-}
+# PUT  http://localhost:8081/user/6219d72fafa763093b32d78f
+# Content-Type: application/json
+# {
+# "email":"fulanito2000@gmail.com"
+# }
