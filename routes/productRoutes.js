@@ -6,7 +6,7 @@ const router = express.Router();
 //todo: Poner la auth con token cuando se ponga más serio
 const { createProduct, updateProduct, deleteProduct, getProduct, getAllProducts } = require('../controllers/productController');
 
-// Create products
+
 router.post("/", createProduct);
 router.get("/", getAllProducts);
 router.get("/find/:id", getProduct);
