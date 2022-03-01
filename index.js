@@ -37,7 +37,7 @@ initializePassport(
 );
 //---
 app.set("view engine", "ejs");
-app.set("views", "./views");
+app.set("views", "./views/pages");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(flash());
@@ -108,7 +108,7 @@ app.delete('/logout', (req, res) => {
 // ------------Routes
 // app.use('/user', userRoute);
 app.use('/auth', authRoute);
-app.use('/product', productRoute);
+app.use('/products', productRoute);
 app.use('/carts', cartRoute);
 app.use('/orders', orderRoute);
 

@@ -45,8 +45,7 @@ body {
 }
 
 .main > form > button,
-.registerButton,
-.goToLoginButton {
+.registerButton {
     background-color: #6d8de6;
     padding: 15px;
     width: 95%;
@@ -60,4 +59,17 @@ body {
 .main > form > input:focus,
 .main > form > button:focus {
     outline: none;
+}
+.sections-container{
+    width: 800px;
+    background-color: rgb(62, 62, 66);
+}
+.logOutBoton {
+    background-color: #6d8de6;
+    padding: 10px 15px;
+    border: none;
+    color: white;
+    margin-top: 20px;
+    border-radius: 8px;
+    cursor: pointer;
 }
