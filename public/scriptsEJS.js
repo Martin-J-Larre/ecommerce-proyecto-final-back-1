@@ -5,6 +5,7 @@ $registerButton.addEventListener("click", () => {
 });
 
 //-----------------Form
+console.log("Add product ***************");
 //! Add products
 const form = document.querySelector(".addProductForm");
 
@@ -17,7 +18,7 @@ form.addEventListener("submit", async (e) => {
 	const imageUrl = e.target.querySelector("#imageUrl").value;
 	const stock = e.target.querySelector("#stock").value;
 	const newProduct = { title: title, price: price, imageUrl: imageUrl, stock: stock };
-
+	
 	try {
 		await fetch("/products/", {
 			method: "POST",

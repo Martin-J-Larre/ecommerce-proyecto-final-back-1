@@ -61,7 +61,7 @@ body {
     outline: none;
 }
 .sections-container{
-    width: 800px;
+    width: 840px;
     background-color: rgb(62, 62, 66);
 }
 .logOutBoton {
@@ -72,4 +72,24 @@ body {
     margin-top: 20px;
     border-radius: 8px;
     cursor: pointer;
+}
+.container-card{
+    width: 200px;
+    margin: 5px;
+}
+.img-card{
+    width: 100%;
+}
+.flex-cards,
+.product-list{
+    display: flex;
+    flex-wrap: wrap;
+}
+.bor-bot{
+    width: 600px;
+    border-bottom: 2px solid rgb(36, 35, 35);
+}
+.bor{
+    width: 600px;
+    border-bottom: 1px solid rgb(36, 35, 35);
 }
