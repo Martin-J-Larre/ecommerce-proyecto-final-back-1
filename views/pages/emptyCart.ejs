@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -13,8 +14,16 @@
         <link rel="stylesheet" href="/css/style.css" />
     </head>
     <body>
-        <%- include("../partials/welcome") %>
-        <%- include("../partials/header") %>
+        <section class="empty-card">
+            <div class="container mx-auto text-center">
+                <h1>Cart Empty  :(</h1>
+                <p>You don't have any order, Let's buy something</p>
+                <img src="/img/empty_cart.svg" alt="Guy with empty cart" width="350">
+            </div>
+            <button type="button" class="btn btn-dark btn-rounded mt-3 mx-5">
+                <a class="text-white mx-5" href="/">Go back</a>
+            </button>
+        </section>
         <script defer src="/js/scriptsEJS.js"></script>    
     </body>
 </html>

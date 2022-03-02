@@ -15,8 +15,22 @@
     <body>
         <!--todo:  No me dejo el include de welcome , ver error y traer el include -->
         <%- include("../partials/header") %>
-        <%- include("../partials/emptyCart") %>
-        <%- include("../partials/orderSummary") %>
+        <section class="cart">
+            <div class="order container mx-auto bor-bot"> 
+                <div class="d-flex">
+                    <img src="/img/cart.svg" alt="cart" width="50">
+                    <h1 class="mx-3 mt-1 fs-3">Order summary</h1>
+                </div>
+            </div>
+            <%- include("./listProducts") %>
+            <%- include("./listProducts") %>
+            <%- include("./listProducts") %>
+            <%- include("./listProducts") %>
+            <div class="d-flex justify-content-end">
+                <p class="mx-3">Total Amount</p>
+                <p class="mx-3"> $ 300</p>
+            </div>
+        </section>
         
     
         

@@ -36,9 +36,9 @@ initializePassport(
     }
 );
 //---
+app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.set("views", "./views/pages");
-app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(flash());
 app.use(
