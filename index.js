@@ -9,7 +9,7 @@ const bcrypt = require("bcryptjs");
 
 const { dbConnect } = require('./config/mongoose');
 const User = require('./models/UserModel');
-// const userRoute = require('./routes/userRoutes');
+const userRoute = require('./routes/userRoutes');
 const { checkNotAuthenticated ,checkAuthenticated } = require('./middlewares/auth');
 const authRoute = require('./routes/authRouter');
 const productRoute = require('./routes/productRoutes');
@@ -109,7 +109,7 @@ app.delete('/logout', (req, res) => {
 
 
 // ------------Routes
-// app.use('/user', userRoute);
+app.use('/api/user', userRoute);
 app.use('/auth', authRoute);
 app.use('/products', productRoute);
 app.use('/carts', cartRoute);
