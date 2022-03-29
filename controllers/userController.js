@@ -1,14 +1,13 @@
-//Viejo manejo de User eliminar cuando este seguro que el nuevo funcione piola
 const CryptoJS = require('crypto-js');
 const User = require('../models/UserModel');
 
-// Update User
+//------ Update User
 const updateUser = async (req, res) => {
     
     if (req.body.password) {
         req.body.password = CryptoJS.AES.encrypt(
             req.body.password,
-            process.env.PASS_SEC
+            process.env.PASS_SECRET
         ).toString();
     }
     try {
@@ -25,7 +24,7 @@ const updateUser = async (req, res) => {
     }
 }
 
-// Delete user
+//------ Delete user
 const deleteUser = async (req, res) => {
     
     try {
@@ -36,8 +35,8 @@ const deleteUser = async (req, res) => {
     }
 }
 
-// Get user
-const getUser = async (req, res) => {
+//------ Get user
+const getOneUser = async (req, res) => {
     
     try {
         const user = await User.findById(req.params.id)
@@ -54,8 +53,8 @@ const getAllUsers = async (req, res) => {
         const users = await User.find()
         res.status(200).json( users );
     } catch (err) {
-        res.status(500).json(err)
+        res.status(500).json( err )
     }
 }
 
-module.exports = { updateUser, deleteUser, getUser, getAllUsers }
+module.exports = { updateUser, deleteUser, getOneUser, getAllUsers }
