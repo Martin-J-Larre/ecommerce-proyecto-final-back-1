@@ -1,31 +1,22 @@
 //----------Imports
 require('dotenv').config()
 const express = require('express');
-// const passport = require('passport');
-// const flash = require('express-flash')
-// const session = require('express-session');
-// const methodOverride = require('method-override');
-// const bcrypt = require("bcryptjs");
-
+const cors = require("cors");
 const { dbConnect } = require('./config/mongoose');
 const userRoute = require('./routes/userRoutes');
 const authRoute = require('./routes/authRouter');
 const productRoute = require('./routes/productRoutes');
 const cartRoute = require('./routes/cartRoutes');
 const orderRoute = require('./routes/orderRoutes');
+const stripeRoute = require('./routes/paymentRoute');
 
 
 const app = express();
 const PORT = process.env.PORT || 8082;
 
 
-
-// ------------ Passport
-// 
-//---
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
-// app.set("view engine", "ejs");
-// app.set("views", "./views/pages");
 app.use(express.json());
 // app.use(flash());
 // app.use(
@@ -101,6 +92,7 @@ app.use('/api/auth', authRoute);
 app.use('/api/products', productRoute);
 app.use('/api/carts', cartRoute);
 app.use("/api/orders", orderRoute);
+app.use("/api/checkout", stripeRoute);
 
 
 dbConnect()
