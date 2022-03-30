@@ -12,7 +12,7 @@ const { dbConnect } = require('./config/mongoose');
 const userRoute = require('./routes/userRoutes');
 // const { checkNotAuthenticated ,checkAuthenticated } = require('./middlewares/auth');
 const authRoute = require('./routes/authRouter');
-// const productRoute = require('./routes/productRoutes');
+const productRoute = require('./routes/productRoutes');
 // const cartRoute = require('./routes/cartRoutes');
 // const orderRoute = require('./routes/orderRoutes');
 
@@ -100,7 +100,7 @@ app.use(express.json());
 // ------------Routes
 app.use('/api/user', userRoute);
 app.use('/api/auth', authRoute);
-// app.use('/products', productRoute);
+app.use('/api/products', productRoute);
 // app.use('/carts', cartRoute);
 // app.use('/orders', orderRoute);
 
