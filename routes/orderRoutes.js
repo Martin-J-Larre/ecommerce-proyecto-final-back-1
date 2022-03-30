@@ -18,10 +18,10 @@ const {
 
 
 router.post("/add/", verifyToken, createOrder);//ok
-router.get("/getall/", verifyTokenAndAdmin, getAllOrders); //
-router.get("/userorders/:userId", verifyTokenAndAuthorization, getUserOrders); //
-router.put("/update/:id", verifyTokenAndAdmin, updateOrder);//
-router.delete("/delete/:id", verifyTokenAndAdmin, deleteOrder);//
+router.get("/getall/", verifyTokenAndAdmin, getAllOrders); //ok
+router.get("/userorders/:userId", verifyTokenAndAuthorization, getUserOrders); //ok
+router.put("/update/:id", verifyTokenAndAdmin, updateOrder);//ok
+router.delete("/delete/:id", verifyTokenAndAdmin, deleteOrder);//ok
 
 module.exports = router;
 
