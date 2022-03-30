@@ -8,13 +8,11 @@ const express = require('express');
 // const bcrypt = require("bcryptjs");
 
 const { dbConnect } = require('./config/mongoose');
-// const User = require('./models/UserModel');
 const userRoute = require('./routes/userRoutes');
-// const { checkNotAuthenticated ,checkAuthenticated } = require('./middlewares/auth');
 const authRoute = require('./routes/authRouter');
 const productRoute = require('./routes/productRoutes');
 const cartRoute = require('./routes/cartRoutes');
-// const orderRoute = require('./routes/orderRoutes');
+const orderRoute = require('./routes/orderRoutes');
 
 
 const app = express();
@@ -101,8 +99,8 @@ app.use(express.json());
 app.use('/api/user', userRoute);
 app.use('/api/auth', authRoute);
 app.use('/api/products', productRoute);
-app.use('/carts', cartRoute);
-// app.use('/orders', orderRoute);
+app.use('/api/carts', cartRoute);
+app.use("/api/orders", orderRoute);
 
 
 dbConnect()
