@@ -1,16 +1,26 @@
-// const { Router } = require('express');
-// const express = require('express');
-// const router = express.Router();
+const express = require('express');
+const { Router } = require('express');
+const router = express.Router();
 
-// // // const { verifyToken, verifyTokenAndAuthorization, verifyTokenAndAdmin } = require('../middlewares/auth');
-// //todo: Poner la auth con token cuando se ponga más serio
-// const { createCart, updateCart, deleteCart, getUserCart, getAllCarts } = require('../controllers/cartController');
+const { 
+    verifyToken, 
+    verifyTokenAndAuthorization, 
+    verifyTokenAndAdmin 
+} = require('../middlewares/verifyToken');
+
+const { 
+    createCart, 
+    updateCart, 
+    deleteCart, 
+    getUserCart, 
+    getAllCarts 
+} = require('../controllers/cartController');
 
 
-// router.post("/", createCart);
-// router.get("/", getAllCarts);
-// router.get("/find/:userId", getUserCart);
-// router.put("/:id", updateCart);
-// router.delete("/:id", deleteCart);
+router.post("/add/", verifyToken, createCart); //
+router.get("/getall/", verifyTokenAndAdmin, getAllCarts);
+router.get("/getone/:userId", verifyTokenAndAuthorization, getUserCart);
+router.put("/update/:id", verifyTokenAndAuthorization, updateCart); //
+router.delete("/delete/:id", verifyTokenAndAuthorization, deleteCart); //
 
-// module.exports = router;
+module.exports = router;
